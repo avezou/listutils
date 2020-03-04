@@ -21,15 +21,16 @@ public class ListUtil {
      * @param list1 a list
      * @param list2 another list
      * @param <E> Generics
-     * @return list of elements in list1 and not in list2 and vice versa
+     * @return list of elements in list1 and not in list2 and vice versa.
+     * Returns empty list if both lists are null or empty or a combination of those
      */
     public static <E> List<E> getListDiff(List<E> list1, List<E> list2) {
         if (list1 == null || list1.isEmpty()) {
-            return list2 == null || list2.isEmpty() ? null : list2;
+            return list2 == null || list2.isEmpty() ? new ArrayList<>() : list2;
         }
 
         if (list2 == null || list2.isEmpty()) {
-            return list1 == null || list1.isEmpty() ? null : list1;
+            return list1 == null || list1.isEmpty() ? new ArrayList<>() : list1;
         }
 
         Set<E> diffSet = new HashSet<>(list1);
